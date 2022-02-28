@@ -14,11 +14,9 @@ const Token = require("../models/token.model");
 const User = require("../models/user.model");
 
 /** ***************** ApiError from utils ************************************************** */
-
 const ApiError = require("../utils/ApiError");
 
 /** ***************** tokenTypes from config/tokens *************************************** */
-
 const { tokenTypes } = require("../config/tokens");
 
 /**
@@ -133,7 +131,5 @@ module.exports = {
   loginUserWithEmailAndPassword,
   logout,
   refreshAuth,
-  candidateRefreshAuth,
-  resetPassword,
-  removeAccess,
+  resetPassword
 };

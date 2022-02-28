@@ -20,7 +20,6 @@ const { authLimiter } = require("./middleware/rateLimiter");
 const routes = require("./routes/v1");
 const { errorConverter, errorHandler } = require("./middleware/error");
 const ApiError = require("./utils/ApiError");
-const { defaultTestData } = require("./services/user.service");
 
 const app = express();
 
@@ -65,10 +64,6 @@ app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
 });
 
-// add test data when it is not in production
-if (config.env !== "production") {
-  defaultTestData().then((res) => console.log(res));
-}
 // convert error to ApiError, if needed
 app.use(errorConverter);
 

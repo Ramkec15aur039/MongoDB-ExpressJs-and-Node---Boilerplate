@@ -7,8 +7,6 @@ const mongoose = require("mongoose");
 const app = require("./app");
 const config = require("./config");
 const logger = require("./config/logger");
-const { accrualCron } = require("./jobs/accrual.cron");
-const { salaryIncreaseCron } = require("./jobs/salaryIncrease.cron");
 
 let server;
 let db;
@@ -19,9 +17,6 @@ try {
       logger.info(`Listening to port ${config.port}`);
     });
   });
-  // starting the cron services.
-  accrualCron();
-  salaryIncreaseCron();
   db = mongoose.connection;
   const exitHandler = () => {
     if (server) {

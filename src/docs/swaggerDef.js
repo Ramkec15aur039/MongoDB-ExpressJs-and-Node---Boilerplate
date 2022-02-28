@@ -15,22 +15,16 @@ else description = `Last Commit: ${info.commit}\n\n Commit Message: ${info.messa
 const swaggerDef = {
   openapi: '3.0.0',
   info: {
-    title: 'Paradigm User API',
+    title: 'MongoDB, ExpressJs and NodeJs - Boilerplate',
     description,
     version,
   },
-  // change url based on (local/production)
 
+  // change url based on (local/production)
   servers: [
     {
       url: 'http://localhost:5030/v1',
-    },
-    {
-      url: 'https://develop.staging.pacificmedicalgroup.org/api/v1',
-    },
-    {
-      url: 'https://hrms.staging.pacificmedicalgroup.org/api/v1',
-    },
+    }
   ],
 };
 
