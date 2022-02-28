@@ -1,0 +1,1464 @@
+components:
+  schemas:
+    Organization:
+      type: object
+      properties:
+        _id:
+          type: string
+        organizationName:
+          type: string
+        organizationShortName:
+          type: string
+        entityType:
+          type: string
+          enum: ['S-Corp','C-Corp','LLC','Partnership','Trust/estate','Limited liability company','Other']
+        isProfit:
+          type: boolean
+        taxIdentificationNumber:
+          type: string
+        organizationKeyPerson:
+          type: string
+        mailingAddress:
+          type: object
+        contactNumber:
+          type: string
+        remittanceAddress:
+          type: object
+        hasShareholder:
+          type: boolean
+        salaryIncreaseAction:
+          type: boolean
+        salaryIncreaseAmount:
+          type: number
+        salaryIncreaseInterval:
+          type: string
+        shareDetails:
+          type: object
+        payPeriod:
+          type: object
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        organizationName: Organization1
+        taxIdentificationNumber: "110002"
+        entityType: "S-Corp"
+        organizationKeyPerson: Ramakrishnan
+        organizationAddress: "711-2880 Nulla St.Mankato Mississippi 96522(257) 563-740"
+        contactNumber: "1234567889"
+        remittanceAddress: {
+          remittanceAddress1: "abc",
+          remittanceAddress2: "xyz",
+          remittanceCity: "Los Angeles",
+          remittanceState: "California",
+          remittanceZipCode: "21363"
+        }
+        mailingAddress: {
+          address1: "abc",
+          address2: "xyz",
+          city: "Los Angeles",
+          state: "California",
+          zipCode: "64165"
+        }
+        hasShareholder: true
+        isProfit: false
+        salaryIncreaseAction: true
+        salaryIncreaseAmount: 10
+        salaryIncreaseInterval: 1
+        payPeriod: {
+          payPeriodType: "Semi-Monthly",
+          lastPayPeriodDate: "10/09/2021"
+        }
+        isActive: true
+        isDeleted: false
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    UserProfile:
+      type: object
+      properties:
+        _id:
+          type: string
+        personalProfile:
+          type: object
+        familyInfo:
+          type: object
+        workInfo:
+          type: object
+        emergencyContact:
+          type: object
+        credentialInfo:
+          type: object
+        educationalInfo:
+          type: object
+        isActive:
+             type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          userId: "1"
+          personalInfo: {
+          personalEmai: "praveenkumar.s@gmail.com",
+          workEmail: "praveenkumar.s@applogiq.in",
+          firstName: "Jhon",
+          middleName: "Kennedy",
+          lastName: "s",
+          preferredName: "Jhon",
+          dob: 01/05/2021,
+          homeAddress: {
+            address1: "87 Texsas colony",
+            address2: "A Zone",
+            city: "Texas valley",
+            state: "Calefornia",
+            zipCode: "641652"
+          },
+          clinicalTitle: "MD",
+          mobileNumber: "+919597532821",
+          telmediqNumber: "+919597532821",
+          preferredPhone: "+919597532821",
+          pager: "12481234567",
+          socialProfile: {
+            doximity: "jhon@doximity",
+            linkedIn: "jhon@linkedIn"
+          }
+          }
+          familyInfo: {
+          name: "Jhonson",
+          relationship: "father",
+          dob: 01/05/2021,
+          dependant: false
+          }
+          emergencyContact: [{
+          firstName: "Jhonson",
+          lastName: "Jhonson",
+          relationship: "father",
+          workNumber: "9597532821",
+          homeNumber: "9597532821",
+          mobileNumber: "9597532821",
+          email: "jhon@example.com"
+          }]
+          workExperience: {
+           basicInfo: {
+            employeeId: "EMP001",
+            prgEmployeeId: "EMP001",
+            dateOfJoining: 01/05/2021,
+            terminationDate: 01/05/2021,
+            probationPeriod: 90,
+            employeeType: "intern",
+            workLocation: "Texas",
+            employeeStatus: active,
+            workExperience: 3,
+            clinicalRole: {
+              roleName: xxx,
+              from: 01/05/2021,
+              to: 01/05/2021,
+              isActive: true,
+              isDeleted: false,
+              },
+            administativeRole: {
+              roleName: xxx,
+              from: 01/05/2021,
+              to: 01/05/2021,
+              isActive: true,
+              isDeleted: false,
+              },
+           },
+           workInfo:{
+             designation: "CEO",
+             jobTitle: "",
+             department: "",
+             subDepartment: ""
+           }
+          }
+          educationalInfo: {
+             courseName: "MBBS",
+             stream: Cardiologist,
+             courseType: "Full Time",
+             courseStartDate: 01/01/2015,
+             courseEndDate: 01/01/2020,
+             insitutionName: "",
+             universityName: "Harvard University"
+           }
+    TeamInfo:
+      type: object
+      properties:
+        _id:
+          type: string
+        myRole:
+          type: object
+        reportingManager:
+          type: object
+        directReports:
+          type: object
+        isActive:
+             type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          userId: "1"
+          myRole: [{
+           department: "Cardiology",
+           designation: "Cardiologists",
+           from: 05/25/2018,
+           to: 05/25/2021
+          }]
+          reportingManager: [{
+          name: "Jhonson",
+          type: "primary",
+          department: "",
+          designation: "CEO",
+          isActive: true,
+          }]
+          directReports: [{
+          name: "Martin",
+          department: "",
+          designation: "Trainee",
+          isActive: true,
+          }]    
+    Settings:
+      type: object
+      properties:
+        _id:
+          type: string
+        Email:
+          type: object
+        isActive:
+             type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          _id: "Email-Setting"
+          email: {
+            service: "gmail",
+            host: "smtp.gmail.com",
+            port: 587,
+            }
+    RolesAndAccess:
+      type: object
+      properties:
+        _id:
+          type: string
+        role:
+          type: string
+        subMenuItems:
+          type: object
+        isActive:
+             type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          userId: "1"
+          access: {
+           title: "Dashboard",
+           permission: "FA",
+          }
+    Logs:
+      type: object
+      properties:
+        _id:
+          type: string
+        action:
+          type: string
+        userId:
+          type: string
+        collectionName:
+          type: string
+        route:
+          type: string
+        data:
+          type: object
+      example:
+        _id: 1
+        action: get
+        userId: 1
+        collectionName: organization
+        route: v1/docs
+        data: "data"
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        personalEmail:
+          type: string
+          format: email
+        workEmail:
+          type: string
+          format: email
+        password:
+          type: string
+        role:
+          type: string
+        firstName:
+          type: string
+        middleName:
+          type: string
+        lastName:
+          type: string
+        preferredName:
+          type: string
+        professionalTitle:
+          type: string
+        dob:
+          type: string
+        prgEmployeeId:
+          type: string
+        employmentStatus:
+          type: string
+        terminationDate:
+          type: date
+        mobileNumber:
+          type: string
+        telmediqNumber:
+          type: string
+        preferredPhone:
+          type: string
+        street:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        location:
+          type: string
+        pager:
+          type: string
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        orgId: "1"
+        personalEmail: praveen@example.com
+        workEmail: praveen@applogiq.com
+        password: password1
+        role: user
+        firstName: praveen
+        middleName: kumar
+        lastName: s
+        preferredName: praveen
+        professionalTitle: MD
+        dob: 08/04/1997
+        prgEmployeeId: praveen
+        employmentStatus: MD
+        terminationDate: 08/04/2020
+        mobileNumber: "1234567890"
+        telmediqNumber: "1234567890"
+        preferredPhone: "1234567890"
+        pager: '13245633'
+        street: 2311  Sundown Lane
+        city: Austin
+        state: Texas
+        location: location
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    Candidate:
+      type: object
+      properties:
+        _id:
+          type: string
+        personalEmail:
+          type: string
+          format: email
+        firstName:
+          type: string
+        lastName:
+          type: string
+        professionalTitle:
+          type: string
+        employeeType:
+          type: string
+        homeAddress:
+          type: string
+        baseSalaryAmount:
+          type: string
+        clinicalRole:
+          type: string
+        status:
+          type: string
+        hasClinicalRole:
+          type: boolean
+        hasAdminRole:
+          type: boolean
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        personalEmail: praveen@example.com
+        firstName: praveen
+        lastName: s
+        professionalTitle: MD
+        employeeType: intern
+        homeAddress: {
+          address1: "87 Texsas colony",
+          address2: "A Zone",
+          city: "Texas valley",
+          state: "Calefornia",
+          zipCode: "641652"
+        }
+        baseSalaryAmount: 20000
+        clinicalRole: abc
+        hasAdminRole: true
+        hasClinicalRole: true
+        status: pending
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    Onboarding:
+      type: object
+      properties:
+        _id:
+          type: string
+        candidateId:
+          type: string
+        template:
+          type: string
+        levelOneConfirmation:
+          type: string
+        levelTwoConfirmation:
+          type: string
+        finalConfirmation:
+          type: string
+        applicationStatus:
+          type: array
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        candidateId: "1"
+        levelOneConfirmation: "approved"
+        levelTwoConfirmation: "approved"
+        finalConfirmation: "approved"
+        applicationStatus: [{
+          name: "praveen",
+          date: 30/06/2021,
+          status: "approved"
+        }]
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    Template:
+      type: object
+      properties:
+        _id:
+          type: string
+        category:
+          type: string
+        type:
+          type: string
+        content:
+          type: string  
+        version:
+          type: number
+        latestVersion:
+          type: boolean
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        templateName: praveen
+        content: abcd
+        templateType: abc
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    Tasks:
+      type: object
+      properties:
+        _id:
+          type: string
+        category:
+          type: string
+        taskType:
+          type: string
+        assignTo:
+          type: string
+        candidateId:
+          type: string  
+        dueDate:
+          type: date
+        status:
+          type: string
+        description:
+          type: string
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        category: onBoarding
+        taskType: offerLetter
+        assignTo: 2
+        candidateId: 1
+        dueDate: 12/07/2021
+        status: pending
+        description: onboard candidate
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    CandidateTasks:
+      type: object
+      properties:
+        _id:
+          type: string
+        category:
+          type: string
+        taskType:
+          type: string
+        assignTo:
+          type: string
+        candidateId:
+          type: string  
+        dueDate:
+          type: date
+        status:
+          type: string
+        description:
+          type: string
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        category: onBoarding
+        taskType: offerLetter
+        assignTo: 2
+        candidateId: 1
+        dueDate: 12/07/2021
+        status: pending
+        description: onboard candidate
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    Signature:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        userId:
+          type: string
+        signature:
+          type: string
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        orgId: "1"
+        userId: "1"
+        signature: "signature"
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    Location:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        location:
+          type: string
+        primary:
+          type: boolean
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        orgId: "1"
+        location: "vNC"
+        primary: true
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    EmploymentType:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        employmentType:
+          type: string
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        orgId: "1"
+        location: "vNC"
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    Roles:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        role:
+          type: string
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        orgId: "1"
+        role: "user"
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    BenefitGroups:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        groupName:
+          type: string
+        deductionType:
+          type: string
+        employeeIds:
+          type: array
+        selectedPlan:
+          type: array
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        orgId: "1"
+        groupName: "1"
+        deductionType: "twice"
+        employeeIds: ["1","2"]
+        selectedPlan: [{
+          planId: "1",
+          effectiveDate: 11/09/2021,
+          benefitDeduction:  "true",
+          coverage: [{ 
+            name: "Health care",  
+            companyCost: 100,  
+            employeeCost: 10     
+          }]                 
+        }]
+    BenefitPlans:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        category:
+          type: string
+        planName:
+          type: string
+        startDate:
+          type: date
+        endDate:
+          type: date
+        description:
+          type: string
+        planUrl:
+          type: string
+        benefitsGroup:
+          type: array
+        coverage:
+          type: array
+        planCost:
+          type: number
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        orgId: "1"
+        category: "Health"
+        planName: US - Health Insurance
+        startDate: 02/08/2021
+        endDate: 02/09/2021
+        description: This is health insurance description
+        planUrl: https:examplePlan.com
+        benefitsGroup: ["1","2"]
+        coverage: ["1","2"]
+        planCost: 200
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    WorkInfo:
+      type: object
+      properties:
+        _id:
+          type: string
+        userId:
+          type: object
+        orgId:
+          type: object
+        basicInfo:
+          type: object
+        workHistory:
+          type: array
+        isActive:
+             type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          userId: "1"
+          orgId: "1"
+          basicInfo: {
+            employeeId: "EMP001",
+            payrollId: "EMP001",
+            dateOfJoining: 01/05/2021,
+            terminationDate: 01/05/2021,
+            probationPeriod: 90,
+            employmentType: "intern",
+            workLocation: ["Texas"],
+            employeeStatus: active,
+            workExperience: 3
+           }
+          workHistory: {
+            jobTitle: MD,
+            from: 10/02/2021,
+            to: 10/02/2021,
+            isActive: true
+          }
+    ExecutedDocuments:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        documentId:
+          type: string
+        userId:
+          type: string
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        orgId: "1"
+        userId: "1"
+        documentId: "1"
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    TimeCard:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        userId:
+          type: string
+        date:
+          type: date
+        workLogs:
+          type: array
+        totalHours:
+          type: number
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        orgId: "1"
+        userId: "1"
+        documentId: "1"
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:0000
+    OrganizationMembers:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        boardMembers:
+          type: object
+        executiveTeam:
+          type: object
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        orgId: "1"
+        boardMembers: {
+         firstName: "praveen",
+         lastName: "kumar",
+         role: "boardMember",
+         location: "VNC",
+         effectiveDate: 01/05/2021,
+         isActive: true,
+        }
+        executiveTeamSchema: {
+         firstName: "Ramakrishna",
+         lastName: "P",
+         role: "CEO",
+         location: "VNC",
+         effectiveDate: 01/09/2021,
+         isActive: true,
+        }
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    EligibilityRule:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        rule:
+          type: string
+        conditions:
+          type: date
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        orgId: "1"
+        rule: "401k"
+        conditions: 2020-11-11T04:16:19.513+00:00
+        isActive: true
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    LocationOfOperation:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        locationId:
+          type: string
+        clinicalName:
+          type: string
+        address:
+          type: object
+        effectiveDate:
+          type: date
+        headCount:
+          type: object
+        isActive:
+             type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          orgId: "1"
+          locationId: "1"
+          clinicalName: "PIMG-01"
+          address: {
+          address1: "87 Texsas colony",
+          address2: "A Zone",
+          city: "Texas valley",
+          state: "Calefornia",
+          zipCode: "64165"
+          }
+          effectiveDate: 2020-05-12T16:18:04.793Z
+    Specialty:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        specialty:
+          type: string
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        orgId: "1"
+        role: "user"
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    EmployeeFolder:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        userId:
+          type: string
+        name:
+          type: string
+        parentId:
+          type: string
+        description:
+          type: string
+        uploadCount:
+          type: object
+        isActive:
+             type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          orgId: "1"
+          userId: "1"
+          name: "PIMG-01"
+          parentId: "1"
+          description: "sample document"
+          uploadCount: 2
+    EmployeeFile:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        userId:
+          type: string
+        fileName:
+          type: string
+        empfolderId:
+          type: string
+        description:
+          type: string
+        isActive:
+             type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          orgId: "1"
+          userId: "1"
+          fileName: "PIMG-01"
+          empFolderId: "1"
+          description: "sample document"
+    OrganizationFolder:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        name:
+          type: string
+        parentId:
+          type: string
+        description:
+          type: string
+        uploadCount:
+          type: object
+        isActive:
+             type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          orgId: "1"
+          userId: "1"
+          name: "PIMG-01"
+          parentId: "1"
+          description: "sample document"
+          uploadCount: 2
+    OrganizationFile:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        fileName:
+          type: string
+        empfolderId:
+          type: string
+        description:
+          type: string
+        isActive:
+             type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          orgId: "1"
+          userId: "1"
+          fileName: "PIMG-01"
+          empFolderId: "1"
+          description: "sample document"
+    TimeOffType:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        typeName:
+          type: string
+        isPaidTimeOff:
+          type: boolean
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          orgId: "1"
+          typeName: "Sick"
+          isPaidTimeOff: true
+          isActive: true
+    TimeOffPolicy:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        timeOffTypeId:
+          type: string
+        policyName:
+          type: string
+        accrualSchedule:
+          type: object
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          orgId: "1"
+          timeOffTypeId: "1"
+          policyName: "Policy-1"
+          accrualSchedule: {
+            startDate: 09/28/2020,
+            amountToAdd: 2,
+            frequency: "monthly",
+            maxAccrual: 100,
+            carryOver: true,
+            carryOverAmount: 50
+          }
+          isActive: true
+    RequestTimeOff:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        userId:
+          type: string
+        timeOffTypeId:
+          type: string
+        requestedDays:
+          type: number
+        status:
+          type: string
+        totalDays:
+          type: number
+        remainingDays:
+          type: number
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          orgId: "1"
+          userId: "1"
+          timeOffTypeId: "1"
+          requestedDays: 2
+          isActive: true
+    UserLeaves:
+      type: object
+      properties:
+        _id:
+          type: string
+        userId:
+          type: string
+        timeOffTypeId:
+          type: string
+        usedLeaves:
+          type: number
+        remainingLeaves:
+          type: number
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          userId: "1"
+          timeOffTypeId: "1"
+          usedLeaves: 2
+          remainingLeaves: 8
+    ESignature:
+      type: object
+      properties:
+        _id:
+          type: string
+        userId:
+          type: string
+        signature:
+          type: string
+        password:
+          type: number
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          userId: "1"
+          signature: ""
+          password: "Signature@!23"
+    RequestTimeCard:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        userId:
+          type: string
+        startDate:
+          type: date
+        endDate:
+          type: date
+        totalHours:
+          type: number
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          orgId: "1"
+          userId: "1"
+          startDate: 10/10/2021
+          endDate: 10/20/2021
+          totalHours: 10
+          isActive: true
+    PolicyAssigned:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        assignedType:
+          type: string
+        timeOffTypeId:
+          type: string
+        timeOffPolicyId:
+          type: string
+        locationId:
+          type: string
+        userId:
+          type: string
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+          orgId: "1"
+          userId: "1"
+          assignedType: "location"
+          locationId: "1"
+          timeOffTypeId: "1"
+          timeOffPolicyId: "1"
+          isActive: true
+    Todos:
+      type: object
+      properties:
+        _id:
+          type: string
+        orgId:
+          type: string
+        todoType:
+          type: string
+        assignTo:
+          type: string
+        dueDate:
+          type: date
+        status:
+          type: string
+        description:
+          type: string
+        isActive:
+          type: boolean
+        isDeleted:
+          type: boolean
+        createdBy:
+          type: boolean
+        updatedBy:
+          type: boolean
+      example:
+        _id: 1
+        category: onBoarding
+        taskType: offerLetter
+        assignTo: 2
+        candidateId: 1
+        dueDate: 12/07/2021
+        status: pending
+        description: onboard candidate
+        isActive: true,
+        createdBy: "1"
+        updatedBy: "2"
+        createdAt: 2020-11-11T04:16:19.513+00:00
+        updatedAt: 2020-11-11T04:16:19.513+00:00
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
+        expires:
+          type: string
+          format: date-time
+      example:
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWJhYzUzNDk1NGI1NDEzOTgwNmMxMTIiLCJpYXQiOjE1ODkyOTg0ODQsImV4cCI6MTU4OTMwMDI4NH0.m1U63blB0MLej_WfB7yC2FTMnCziif9X8yzwDEfJXAg
+        expires: 2020-05-12T16:18:04.793Z
+    AuthTokens:
+      type: object
+      properties:
+        access:
+          $ref: "#/components/schemas/Token"
+        refresh:
+          $ref: "#/components/schemas/Token"
+    Error:
+      type: object
+      properties:
+        code:
+          type: number
+        message:
+          type: string
+
+  responses:
+    DuplicateEmail:
+      description: Email already taken
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            code: 400
+            message: Email already taken
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            code: 401
+            message: Please authenticate
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            code: 403
+            message: Forbidden
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            code: 404
+            message: Not found
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
