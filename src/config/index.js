@@ -47,8 +47,8 @@ const configuration = {
   development: {
     env: "development",
     port: 4030,
-    backendUrl: "https://develop.staging.pacificmedicalgroup.org/api",
-    frontEndUrl: "https://develop.staging.pacificmedicalgroup.org",
+    backendUrl: "development URL",
+    frontEndUrl: "development URL",
     mongoose: {
       url: `mongodb://localhost:1500/${configFile.mongoose.DevelopDbName}`, // url to connect mongodb staging
       DbName: configFile.mongoose.DevelopDbName,
@@ -87,8 +87,8 @@ const configuration = {
   staging: {
     env: "staging",
     port: 5030,
-    backendUrl: "https://hrms.staging.pacificmedicalgroup.org/api",
-    frontEndUrl: "https://hrms.staging.pacificmedicalgroup.org",
+    backendUrl: "backendUrl",
+    frontEndUrl: "frontEndUrl",
     mongoose: {
       url: `mongodb://localhost:1500/${configFile.mongoose.StagingDbName}`, // url to connect mongodb staging
       DbName: configFile.mongoose.StagingDbName,

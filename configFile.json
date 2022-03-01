@@ -1,10 +1,10 @@
 {
-"email":{
-    "Email":"help.applogiq@gmail.com",
-    "password":"Applogiq123@"
-},
-"mongoose":{
-    "StagingDbName":"staging_paradigm_pimg",
-    "DevelopDbName":"develop_paradigm_pimg"
-}
+  "email": {
+    "Email": "email",
+    "password": "password"
+  },
+  "mongoose": {
+    "StagingDbName": "StagingDbName",
+    "DevelopDbName": "DevelopDbName"
+  }
 }

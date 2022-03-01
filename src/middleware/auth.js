@@ -14,7 +14,6 @@ const { roleRights } = require('../config/roles');
 /*
 function verifyCallback - This function is used to verify the user is aunthenticated or not and verify
                           the role of an user for accessing
-
 */
 
 const verifyCallback = (req, resolve, reject, requiredRights) => async (
